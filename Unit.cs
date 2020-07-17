@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,10 +83,45 @@ namespace StragtegyGame
 
         private void setX(int x)
         {
-
+            this.x = x;
         }
 
         private void setY(int y)
+        {
+            this.y = y;
+        }
+
+        private void setHealth(int health)
+        {
+            this.health = health;
+        }
+
+        private void setSpeed(int speed)
+        {
+            this.speed = speed;
+        }
+
+        private void setAttack(bool attack)
+        {
+            this.attack = attack;
+        }
+
+        private void setAttackRange(int attackRange)
+        {
+            this.attackRange = attackRange;
+        }
+
+        private void setFaction(string faction)
+        {
+            this.faction = faction;
+        }
+
+        private void setSymbol(string symbol)
+        {
+            this.symbol = symbol;
+        }
+
+        public void move(int x, int y)
         {
 
         }
