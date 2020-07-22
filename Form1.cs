@@ -17,7 +17,8 @@ namespace StragtegyGame
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+
+        private void textBoxGrid_TextChanged(object sender, EventArgs e)
         {
 
         }

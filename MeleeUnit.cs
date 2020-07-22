@@ -8,14 +8,15 @@ namespace StragtegyGame
 {
     class MeleeUnit : Unit
     {
-        public int DAMAGE = 2;
+        public const int DAMAGE = 2;
 
         public MeleeUnit()
         {
 
         }
 
-        public MeleeUnit(int x, int y, int health, int speed, bool attack, int attackRange, String faction, String symbol)
+        public MeleeUnit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol)
+            : base(x, y, health, speed, attack, attackRange, faction, symbol)
         {
 
         }
@@ -37,7 +38,10 @@ namespace StragtegyGame
 
         public override void move(int x, int y)
         {
-            throw new NotImplementedException();
+            if (x >= 0 && x < 20)
+                X = x;
+            if (y >= 0 && y < 20)
+                Y = y;
         }
 
         public override Unit nearestUnit(List<Unit> u)
