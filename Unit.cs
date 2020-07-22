@@ -8,17 +8,18 @@ using System.Windows.Forms;
 
 namespace StragtegyGame
 {
-    class Unit
+    abstract class Unit
     {
-        protected int attackRange;
-        protected String symbol;
-        protected bool attack;
         protected int x;
         protected int y;
         protected int health;
         protected int speed;
-        protected String faction;
+        protected bool attack;
+        protected int attackRange;
+        protected string faction;
+        protected string symbol;
 
+        #region Constroctor and Deconstructor
         public Unit()
         {
 
@@ -41,89 +42,113 @@ namespace StragtegyGame
 
         }
 
-        public int getX(int x)
+        #endregion Constroctor and Deconstructor
+
+        #region Accessors
+        public int X
         {
-            return this.x;
+            get
+            {
+                return x;
+            }
+            set
+            {
+                x = value;
+            }
         }
 
-        public int getY()
+        public int Y
         {
-            return this.y;
+            get
+            {
+                return y;
+            }
+            set
+            {
+                y = value;
+            }
         }
 
-        public int getHealth()
+        public int Health
         {
-            return this.health;
+            get
+            {
+                return health;
+            }
+            set
+            {
+                health = value;
+            }
         }
 
-        public int getSpeed()
+        public int Speed
         {
-            return this.speed;
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                speed = value;
+            }
         }
 
-        public bool getAttack()
+        public bool Attack
         {
-            return this.attack;
+            get
+            {
+                return attack;
+            }
+            set
+            {
+                attack = value;
+            }
         }
 
-        public int getAttackRange()
+        public int AttackRange
         {
-            return this.attackRange;
+            get
+            {
+                return attackRange;
+            }
+            set
+            {
+                attackRange = value;
+            }
         }
 
-        public string getFaction()
+        public string Faction
         {
-            return this.faction;
+            get
+            {
+                return faction;
+            }
+            set
+            {
+                faction = value;
+            }
         }
 
-        public string getSymbol()
+        public string Symbol
         {
-            return this.symbol;
+            get
+            {
+                return symbol;
+            }
+            set
+            {
+                symbol = value;
+            }
         }
+        #endregion Accessors
 
-        private void setX(int x)
-        {
-            this.x = x;
-        }
-
-        private void setY(int y)
-        {
-            this.y = y;
-        }
-
-        private void setHealth(int health)
-        {
-            this.health = health;
-        }
-
-        private void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
-
-        private void setAttack(bool attack)
-        {
-            this.attack = attack;
-        }
-
-        private void setAttackRange(int attackRange)
-        {
-            this.attackRange = attackRange;
-        }
-
-        private void setFaction(string faction)
-        {
-            this.faction = faction;
-        }
-
-        private void setSymbol(string symbol)
-        {
-            this.symbol = symbol;
-        }
-
-        public void move(int x, int y)
-        {
-
-        }
+        #region Methods
+        public abstract void move(int x, int y);
+        public abstract void combat(Unit enemy);
+        public abstract bool isWithingAttackRange(Unit enemy);
+        public abstract Unit nearestUnit(List<Unit> u);
+        public abstract bool isAlive();
+        public abstract string toString();
+        #endregion Methods
     }
 }
