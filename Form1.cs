@@ -12,9 +12,13 @@ namespace StragtegyGame
 {
     public partial class Form1 : Form
     {
+        MeleeUnit meleeUnit = new MeleeUnit();
+        Random randomNumber = new Random();
+
         public Form1()
         {
             InitializeComponent();
+            meleeUnit.move(randomNumber.Next(1, 21), randomNumber.Next(1, 21));
         }
 
 

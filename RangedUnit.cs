@@ -46,7 +46,15 @@ namespace StragtegyGame
 
         public override string toString()
         {
-            throw new NotImplementedException();
+            string output = "X : " + X + Environment.NewLine
+                + "Y : " + Y + Environment.NewLine
+                + "Health : " + Health + Environment.NewLine
+                + "Speed : " + Speed + Environment.NewLine
+                + "Attack : " + Attack + Environment.NewLine
+                + "Attack Range : " + AttackRange + Environment.NewLine
+                + "Faction : " + Faction + Environment.NewLine
+                + "Symbol : " + Symbol + Environment.NewLine;
+            return output;
         }
     }
 }
