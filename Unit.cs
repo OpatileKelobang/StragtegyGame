@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// ReSharper disable All
 
 namespace StragtegyGame
 {
@@ -25,7 +26,7 @@ namespace StragtegyGame
 
         }
 
-        public Unit(int x, int y, int health, int speed, bool attack, int attackRange, String faction, String symbol)
+        public Unit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol)
         {
             this.x = x;
             this.y = y;

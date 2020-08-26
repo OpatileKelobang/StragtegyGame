@@ -50,7 +50,7 @@ namespace StragtegyGame
                 + "Y : " + Y + Environment.NewLine
                 + "Health : " + Health + Environment.NewLine
                 + "Speed : " + Speed + Environment.NewLine
-                + "Attack : " + Attack + Environment.NewLine
+                + "Attack : " + (Attack ? "Yes" : "No") + Environment.NewLine
                 + "Attack Range : " + AttackRange + Environment.NewLine
                 + "Faction : " + Faction + Environment.NewLine
                 + "Symbol : " + Symbol + Environment.NewLine;
