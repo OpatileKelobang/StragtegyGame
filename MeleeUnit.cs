@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// ReSharper disable All
 
 namespace StragtegyGame
 {
@@ -23,12 +24,18 @@ namespace StragtegyGame
 
         public override void combat(Unit enemy)
         {
-            throw new NotImplementedException();
+            // If Enemy is within AttackRange decrease Health by Damage (2)
+            if (this.isWithingAttackRange(enemy))
+            {
+                enemy.Health -= DAMAGE;
+            }
         }
 
         public override bool isAlive()
         {
-            throw new NotImplementedException();
+            // If Health is greater than zero, then true, else false (equal to result)
+            bool result = (this.Health > 0)? true : false;
+            return result;
         }
 
         public override bool isWithingAttackRange(Unit enemy)
@@ -39,14 +46,10 @@ namespace StragtegyGame
         public override void move(int x, int y)
         {
 
-            /*if (x >= 0 && x < 20)
+            if (x >= 0 && x < 20)
                 X = x;
             if (y >= 0 && y < 20)
-                Y = y;*/
-            X = x;
-            Y = y;
-            Console.WriteLine("x is " + x);
-            Console.WriteLine("y is " + y);
+                Y = y;
         }
 
         public override Unit nearestUnit(List<Unit> u)
