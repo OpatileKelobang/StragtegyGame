@@ -59,14 +59,14 @@ namespace StragtegyGame
 
         public override string toString()
         {
-            string output = "X : " + X + Environment.NewLine
+            string output = "X : " + x + Environment.NewLine
                 + "Y : " + Y + Environment.NewLine
-                + "Health : " + Health + Environment.NewLine
-                + "Speed : " + Speed + Environment.NewLine
-                + "Attack : " + (Attack ? "Yes" : "No") + Environment.NewLine
-                + "Attack Range : " + AttackRange + Environment.NewLine
-                + "Faction : " + Faction + Environment.NewLine
-                + "Symbol : " + Symbol + Environment.NewLine;
+                + "Health : " + health + Environment.NewLine
+                + "Speed : " + speed + Environment.NewLine
+                + "Attack : " + (attack ? "Yes" : "No") + Environment.NewLine
+                + "Attack Range : " + attackRange + Environment.NewLine
+                + "Faction : " + faction + Environment.NewLine
+                + "Symbol : " + symbol + Environment.NewLine;
             return output;
         }
     }
