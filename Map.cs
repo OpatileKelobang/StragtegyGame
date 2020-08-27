@@ -99,5 +99,18 @@ namespace StragtegyGame
                 u.move(newX, newY);
             }
         }
+
+        private void checkHealt()
+        {
+            for (int i = 0; i < numberOfUitsOnMap; i++)
+            {
+                if (!unitsOnMap[i].isAlive())
+                {
+                    grid[unitsOnMap[i].X, unitsOnMap[i].Y] = FIELD_SYMBOL;
+                    unitsOnMap.RemoveAt(i);
+                    numberOfUitsOnMap--;
+                }
+            }
+        }
     }
 }
