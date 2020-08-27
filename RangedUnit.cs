@@ -16,28 +16,36 @@ namespace StragtegyGame
         }
 
         public RangedUnit(int x, int y, int health, int speed, bool attack, int attackRange, String faction, String symbol)
+            :base(x, y, health, speed, attack, attackRange, faction, symbol)
         {
 
         }
 
         public override void combat(Unit enemy)
         {
-            throw new NotImplementedException();
+            if (this.isWithingAttackRange(enemy))
+            {
+                enemy.Health -= DAMAGE;
+            }
         }
 
         public override bool isAlive()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public override bool isWithingAttackRange(Unit enemy)
         {
-            throw new NotImplementedException();
+            if (((this.X - enemy.X) <= this.AttackRange) || (Math.Abs(this.Y - enemy.Y) <= this.AttackRange))
+                return true;
+            else
+                return false;
         }
 
         public override void move(int x, int y)
         {
-            throw new NotImplementedException();
+            X = x;
+            Y = y;
         }
 
         public override Unit nearestUnit(List<Unit> u)
