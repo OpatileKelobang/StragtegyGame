@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,11 @@ namespace StragtegyGame
 
         public override bool isWithingAttackRange(Unit enemy)
         {
-            throw new NotImplementedException();
+            // Check if enemy X and Y position is within attach range (return true or false)
+            if (((this.X - enemy.X) <= this.AttackRange) || (Math.Abs(this.Y - enemy.Y) <= this.AttackRange))
+                return true;
+            else
+                return false;
         }
 
         public override void move(int x, int y)
