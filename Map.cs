@@ -100,7 +100,7 @@ namespace StragtegyGame
             }
         }
 
-        private void checkHealt()
+        public void checkHealth()
         {
             for (int i = 0; i < numberOfUitsOnMap; i++)
             {

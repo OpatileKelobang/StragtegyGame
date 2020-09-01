@@ -48,9 +48,31 @@ namespace StragtegyGame
             Y = y;
         }
 
-        public override Unit nearestUnit(List<Unit> u)
+        public override Unit nearestUnit(List<Unit> list)
         {
-            throw new NotImplementedException();
+            Unit closest = null;
+            int attackRangeX, attackRangeY;
+            int shortestRange = 1000;
+
+            foreach (Unit u in list)
+            {
+                attackRangeX = this.X - u.X;
+                attackRangeY = this.Y - u.Y;
+
+                if (attackRangeX < shortestRange)
+                {
+                    shortestRange = attackRangeX;
+                    closest = u;
+                }
+
+                if (attackRangeY < shortestRange)
+                {
+                    shortestRange = attackRangeY;
+                    closest = u;
+                }
+            }
+
+            return closest;
         }
 
         public override string toString()

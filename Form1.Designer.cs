@@ -34,7 +34,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblTimer = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -62,6 +62,7 @@
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnPause
             // 
@@ -81,31 +82,32 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // lblTimer
+            // lblTime
             // 
-            this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTimer.BackColor = System.Drawing.Color.Transparent;
-            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(448, 29);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(277, 64);
-            this.lblTimer.TabIndex = 6;
-            this.lblTimer.Text = "00:00:00";
-            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(448, 29);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(277, 64);
+            this.lblTime.TabIndex = 6;
+            this.lblTime.Text = "00:00:00";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer
             // 
             this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 499);
-            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
@@ -124,7 +126,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer;
     }
 }
