@@ -39,8 +39,22 @@ namespace StragtegyGame
                         newX = map.UnitsOnMap[j].X - 1;
                     else
                         newX = map.UnitsOnMap[j].X;
+
+                    if (map.UnitsOnMap[j].Y < closest.Y)
+                        newY = map.UnitsOnMap[j].Y + 1;
+                    else if (map.UnitsOnMap[j].Y > closest.Y)
+                        newY = map.UnitsOnMap[j].Y - 1;
+                    else
+                        newY = map.UnitsOnMap[j].Y;
+                    map.update(map.UnitsOnMap[j], newX, newY);
+
                 }
             }
+        }
+
+        public void pause()
+        {
+
         }
     }
 }

@@ -39,6 +39,44 @@ namespace StragtegyGame
         {
             lblTime.Text = System.DateTime.Now.ToLongTimeString();
             gameEngine.start();
+
+            // SHow grid
+            textBoxGrid.Text = "";
+            for (int i = 0; i < 20; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    if (gameEngine.map.Grid[i, j].Equals(Map.FIELD_SYMBOL))
+                    {
+                        foreach (Unit u in gameEngine.map.UnitsOnMap)
+                        {
+                            if (u.X == i && u.Y == j)
+                            {
+                                /*if (u.Faction.Equals("RED"))
+                                    textBoxGrid.AppendText(gameEngine.map.Grid[i, j], Color.Red);
+                                else
+                                    textBoxGrid.AppendText(gameEngine.map.Grid[i, j], Color.Green);
+                                break;*/
+                            }
+                        }
+                    }
+                    else
+                        textBoxGrid.AppendText(Map.FIELD_SYMBOL);
+                    textBoxGrid.AppendText(" ");
+                }
+            }
+        }
+
+        public static class RichTexboxExtensions
+        {
+            public static void AppendText(this RichTextBox box, string text, Color color)
+            {
+                box.SelectionStart = box.TextLength;
+                box.SelectionLength = 0;
+                box.SelectionColor = color;
+                box.AppendText(text);
+                box.SelectionColor = box.ForeColor;
+            }
         }
     }
 }
