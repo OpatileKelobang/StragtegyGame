@@ -13,14 +13,15 @@ namespace StragtegyGame
 {
     public partial class Form1 : Form
     {
-        MeleeUnit meleeUnit = new MeleeUnit();
-        Random randomNumber = new Random();
-        GameEngine gameEngine = new GameEngine();
+        GameEngine engine = new GameEngine();
 
         public Form1()
         {
             InitializeComponent();
-            meleeUnit.move(randomNumber.Next(1, 21), randomNumber.Next(1, 21));
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             
         }
 
@@ -32,13 +33,29 @@ namespace StragtegyGame
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            gameEngine.start();
+            btnStart.Enabled = false;
+            btnPause.Enabled = true;
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            btnPause.Enabled = false;
+            btnStart.Enabled = true;
+            timer.Stop();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = MessageBox.Show("Are you sure you want to Exit?", "Exit Game",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             lblTime.Text = System.DateTime.Now.ToLongTimeString();
-            gameEngine.start();
+            engine.start();
 
             // SHow grid
             textBoxGrid.Text = "";
@@ -46,16 +63,16 @@ namespace StragtegyGame
             {
                 for (int j = 0; j < 20; j++)
                 {
-                    if (gameEngine.map.Grid[i, j].Equals(Map.FIELD_SYMBOL))
+                    if (engine.map.Grid[i, j].Equals(Map.FIELD_SYMBOL))
                     {
-                        foreach (Unit u in gameEngine.map.UnitsOnMap)
+                        foreach (Unit u in engine.map.UnitsOnMap)
                         {
                             if (u.X == i && u.Y == j)
                             {
-                                /*if (u.Faction.Equals("RED"))
-                                    textBoxGrid.AppendText(gameEngine.map.Grid[i, j], Color.Red);
+                               /* if (u.Faction.Equals("RED"))
+                                    textBoxGrid.AppendText(engine.map.Grid[i, j], Color.Red);
                                 else
-                                    textBoxGrid.AppendText(gameEngine.map.Grid[i, j], Color.Green);
+                                    textBoxGrid.AppendText(engine.map.Grid[i, j], Color.Green);
                                 break;*/
                             }
                         }
@@ -67,7 +84,13 @@ namespace StragtegyGame
             }
         }
 
-        public static class RichTexboxExtensions
+        
+
+
+
+
+
+        /*public static class RichTexboxExtensions
         {
             public static void AppendText(this RichTextBox box, string text, Color color)
             {
@@ -77,6 +100,6 @@ namespace StragtegyGame
                 box.AppendText(text);
                 box.SelectionColor = box.ForeColor;
             }
-        }
+        }*/
     }
 }
