@@ -19,6 +19,7 @@ namespace StragtegyGame
         protected int attackRange;
         protected string faction;
         protected string symbol;
+        protected string unitName;
 
         #region Constroctor and Deconstructor
         public Unit()
@@ -26,7 +27,7 @@ namespace StragtegyGame
 
         }
 
-        public Unit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol)
+        public Unit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol, string unitName)
         {
             this.x = x;
             this.y = y;
@@ -36,6 +37,7 @@ namespace StragtegyGame
             this.attackRange = attackRange;
             this.faction = faction;
             this.symbol = symbol;
+            this.unitName = unitName;
         }
 
         ~Unit()
@@ -135,6 +137,18 @@ namespace StragtegyGame
             get
             {
                 return symbol;
+            }
+            set
+            {
+                symbol = value;
+            }
+        }
+
+        public string UnitName
+        {
+            get
+            {
+                return unitName;
             }
             set
             {

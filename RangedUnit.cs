@@ -15,8 +15,8 @@ namespace StragtegyGame
 
         }
 
-        public RangedUnit(int x, int y, int health, int speed, bool attack, int attackRange, String faction, String symbol)
-            :base(x, y, health, speed, attack, attackRange, faction, symbol)
+        public RangedUnit(int x, int y, int health, int speed, bool attack, int attackRange, String faction, String symbol, string unitName)
+            :base(x, y, health, speed, attack, attackRange, faction, symbol, unitName)
         {
 
         }
@@ -84,7 +84,8 @@ namespace StragtegyGame
                 + "Attack : " + (Attack ? "Yes" : "No") + Environment.NewLine
                 + "Attack Range : " + AttackRange + Environment.NewLine
                 + "Faction : " + Faction + Environment.NewLine
-                + "Symbol : " + Symbol + Environment.NewLine;
+                + "Symbol : " + Symbol + Environment.NewLine
+                + "Unit Name : " + UnitName + Environment.NewLine;
             return output;
         }
     }

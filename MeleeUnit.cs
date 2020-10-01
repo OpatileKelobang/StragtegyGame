@@ -17,8 +17,8 @@ namespace StragtegyGame
 
         }
 
-        public MeleeUnit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol)
-            : base(x, y, health, speed, attack, attackRange, faction, symbol)
+        public MeleeUnit(int x, int y, int health, int speed, bool attack, int attackRange, string faction, string symbol, string unitName)
+            : base(x, y, health, speed, attack, attackRange, faction, symbol, unitName)
         {
 
         }

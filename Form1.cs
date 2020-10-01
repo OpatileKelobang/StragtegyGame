@@ -22,7 +22,7 @@ namespace StragtegyGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -50,6 +50,8 @@ namespace StragtegyGame
         {
             System.Windows.Forms.DialogResult result = MessageBox.Show("Are you sure you want to Exit?", "Exit Game",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -63,43 +65,40 @@ namespace StragtegyGame
             {
                 for (int j = 0; j < 20; j++)
                 {
-                    if (engine.map.Grid[i, j].Equals(Map.FIELD_SYMBOL))
+                    if (!engine.map.Grid[i, j].Equals(Map.FIELD_SYMBOL))
                     {
                         foreach (Unit u in engine.map.UnitsOnMap)
                         {
                             if (u.X == i && u.Y == j)
                             {
-                               /* if (u.Faction.Equals("RED"))
+                                if (u.Faction.Equals("RED"))
                                     textBoxGrid.AppendText(engine.map.Grid[i, j], Color.Red);
                                 else
                                     textBoxGrid.AppendText(engine.map.Grid[i, j], Color.Green);
-                                break;*/
+                                break;
                             }
                         }
                     }
                     else
                         textBoxGrid.AppendText(Map.FIELD_SYMBOL);
+
                     textBoxGrid.AppendText(" ");
                 }
+                textBoxGrid.AppendText("\n");
             }
         }
-
-        
-
+    }
 
 
-
-
-        /*public static class RichTexboxExtensions
+    public static class RichTexboxExtensions
+    {
+        public static void AppendText(this RichTextBox textBoxGrid, string text, Color color)
         {
-            public static void AppendText(this RichTextBox box, string text, Color color)
-            {
-                box.SelectionStart = box.TextLength;
-                box.SelectionLength = 0;
-                box.SelectionColor = color;
-                box.AppendText(text);
-                box.SelectionColor = box.ForeColor;
-            }
-        }*/
+            textBoxGrid.SelectionStart = textBoxGrid.TextLength;
+            textBoxGrid.SelectionLength = 0;
+            textBoxGrid.SelectionColor = color;
+            textBoxGrid.AppendText(text);
+            textBoxGrid.SelectionColor = textBoxGrid.ForeColor;
+        }
     }
 }
