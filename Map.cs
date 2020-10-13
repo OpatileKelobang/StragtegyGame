@@ -10,7 +10,7 @@ namespace StragtegyGame
     class Map
     {
         private const int MAX_RANDOM_UNITS = 50;
-        public const string FIELD_SYMBOL = ".";
+        public const string FIELD_SYMBOL = "*";
         private string[,] grid = new string[20,20];
         private List<Unit> unitsOnMap = new List<Unit>();
         private int numberOfUitsOnMap = 0;
@@ -73,7 +73,7 @@ namespace StragtegyGame
                 else
                 {
                     attackOption = rnd.Next(0, 2) == 1 ? true : false;
-                    randomAttackRange = rnd.Next(0, 20);
+                    randomAttackRange = rnd.Next(1, 20);
                     team = rnd.Next(0, 2) == 1 ? "Red" : "Green";
                     Unit tmp = new RangedUnit(x, y, 100, -1, attackOption, randomAttackRange, team, "R", "Tank");
                     unitsOnMap.Add(tmp);

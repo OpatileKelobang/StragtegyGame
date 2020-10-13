@@ -9,7 +9,7 @@ namespace StragtegyGame
 {
     class RangedUnit : Unit
     {
-        public int DAMAGE = 2;
+        public int DAMAGE = 1;
         public RangedUnit()
         {
 
@@ -37,7 +37,7 @@ namespace StragtegyGame
 
         public override bool isWithingAttackRange(Unit enemy)
         {
-            if (((this.X - enemy.X) <= this.AttackRange) || (Math.Abs(this.Y - enemy.Y) <= this.AttackRange))
+            if (((this.X - enemy.X) <= this.AttackRange) || (Math.Abs(this.X - enemy.X) <= this.AttackRange))
                 return true;
             else
                 return false;
@@ -45,10 +45,10 @@ namespace StragtegyGame
 
         public override void move(int x, int y)
         {
-            if (x >= 0 && x < 19)
-                X = x;
-            if (y >= 0 && y < 19)
-                Y = y;
+            if (x >= 0 && x < 20)
+                this.x = x;
+            if (y >= 0 && y < 20)
+                this.y = y;
         }
 
         public override Unit nearestUnit(List<Unit> list)
@@ -70,7 +70,7 @@ namespace StragtegyGame
 
                 if (attackRangeY < shortestRange)
                 {
-                    shortestRange = attackRangeY;
+                    shortestRange = attackRangeX;
                     closest = u;
                 }
             }

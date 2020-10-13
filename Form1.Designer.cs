@@ -36,6 +36,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.txtDisplay = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,7 +48,7 @@
             // 
             // textBoxGrid
             // 
-            this.textBoxGrid.Location = new System.Drawing.Point(40, 26);
+            this.textBoxGrid.Location = new System.Drawing.Point(20, 20);
             this.textBoxGrid.Name = "textBoxGrid";
             this.textBoxGrid.Size = new System.Drawing.Size(383, 370);
             this.textBoxGrid.TabIndex = 1;
@@ -104,11 +105,20 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // txtDisplay
+            // 
+            this.txtDisplay.Location = new System.Drawing.Point(451, 120);
+            this.txtDisplay.Multiline = true;
+            this.txtDisplay.Name = "txtDisplay";
+            this.txtDisplay.Size = new System.Drawing.Size(274, 200);
+            this.txtDisplay.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 499);
+            this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPause);
@@ -119,6 +129,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,6 +142,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox txtDisplay;
     }
 }
 

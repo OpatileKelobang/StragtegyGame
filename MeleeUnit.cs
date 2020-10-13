@@ -35,7 +35,7 @@ namespace StragtegyGame
         public override bool isAlive()
         {
             // If Health is greater than zero, then true, else false (equal to result)
-            bool result = (this.Health > 0)? true : false;
+            bool result = (Health > 0)? true : false;
             return result;
         }
 
@@ -52,9 +52,9 @@ namespace StragtegyGame
         {
 
             if (x >= 0 && x < 20)
-                X = x;
+                this.x = x;
             if (y >= 0 && y < 20)
-                Y = y;
+                this.y = y;
         }
 
         public override Unit nearestUnit(List<Unit> list)
@@ -65,8 +65,8 @@ namespace StragtegyGame
 
             foreach (Unit u in list)
             {
-                attackRangeX = this.X - u.X;
-                attackRangeY = this.Y - u.Y;
+                attackRangeX = Math.Abs(this.X - u.X);
+                attackRangeY = Math.Abs(this.Y - u.Y);
 
                 if (attackRangeX < shortestRange)
                 {
@@ -76,7 +76,7 @@ namespace StragtegyGame
 
                 if (attackRangeY < shortestRange)
                 {
-                    shortestRange = attackRangeY;
+                    shortestRange = attackRangeX;
                     closest = u;
                 }
             }
