@@ -10,7 +10,7 @@ namespace StragtegyGame
 {
     class MeleeUnit : Unit
     {
-        public const int DAMAGE = 2;
+        private const int DAMAGE = 2;
 
         public MeleeUnit()
         {
@@ -93,7 +93,8 @@ namespace StragtegyGame
                 + "Attack : " + (attack ? "Yes" : "No") + Environment.NewLine
                 + "Attack Range : " + attackRange + Environment.NewLine
                 + "Faction : " + faction + Environment.NewLine
-                + "Symbol : " + symbol + Environment.NewLine;
+                + "Symbol : " + symbol + Environment.NewLine
+                + "Unit Name : " + unitName + Environment.NewLine;
             return output;
         }
     }

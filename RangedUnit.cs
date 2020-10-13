@@ -31,7 +31,8 @@ namespace StragtegyGame
 
         public override bool isAlive()
         {
-            return true;
+            bool result = (this.Health > 0) ? true : false;
+            return result;
         }
 
         public override bool isWithingAttackRange(Unit enemy)
@@ -44,8 +45,10 @@ namespace StragtegyGame
 
         public override void move(int x, int y)
         {
-            X = x;
-            Y = y;
+            if (x >= 0 && x < 19)
+                X = x;
+            if (y >= 0 && y < 19)
+                Y = y;
         }
 
         public override Unit nearestUnit(List<Unit> list)

@@ -53,7 +53,7 @@ namespace StragtegyGame
                 {
                     for (int i = 0; i < map.UnitsOnMap.Count; i++)
                     {
-                        if (map.UnitsOnMap[j].Faction != map.UnitsOnMap[1].Faction)
+                        if (map.UnitsOnMap[j].Faction != map.UnitsOnMap[i].Faction)
                             map.UnitsOnMap[j].combat(map.UnitsOnMap[i]);
 
                     }
@@ -64,7 +64,7 @@ namespace StragtegyGame
                     for (int i = 0; i < map.UnitsOnMap.Count; i++)
                     {
                         if ((map.UnitsOnMap[j].Faction != map.UnitsOnMap[i].Faction) &&
-                            map.UnitsOnMap[j].isWithingAttackRange(map.UnitsOnMap[i]))
+                            (map.UnitsOnMap[j].isWithingAttackRange(map.UnitsOnMap[i])))
                             map.UnitsOnMap[j].Attack = true;
                     }
                 }

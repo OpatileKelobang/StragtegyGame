@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-// ReSharper disable All
+
 
 namespace StragtegyGame
 {
@@ -14,6 +14,7 @@ namespace StragtegyGame
         private string[,] grid = new string[20,20];
         private List<Unit> unitsOnMap = new List<Unit>();
         private int numberOfUitsOnMap = 0;
+        private string unitName;
 
         public string[,] Grid
         {
@@ -48,7 +49,7 @@ namespace StragtegyGame
                 }
             }
 
-            for (int k = 0; k < numberRandomUnits; k++)
+            for (int k = 1; k < numberRandomUnits; k++)
             {
                 // Check x, y not occupied by another unit
                 do
@@ -60,8 +61,8 @@ namespace StragtegyGame
                 if (rnd.Next(1, 3) == 1)
                 {
                     attackOption = rnd.Next(0, 2) == 1 ? true : false;
-                    team = rnd.Next(0, 2) == 1 ? "Red" : "Green";
-                    Unit tmp = new MeleeUnit(x, y, 100, -1, attackOption, 1, team, "M");
+                    team = rnd.Next(0, 2) == 1 ? "RED" : "GREEN";
+                    Unit tmp = new MeleeUnit(x, y, 100, -1, attackOption, 1, team, "M", unitName);
                     unitsOnMap.Add(tmp);
 
                     grid[x, y] = tmp.Symbol;
@@ -72,9 +73,9 @@ namespace StragtegyGame
                 else
                 {
                     attackOption = rnd.Next(0, 2) == 1 ? true : false;
-                    randomAttackRange = rnd.Next(1, 20);
+                    randomAttackRange = rnd.Next(0, 20);
                     team = rnd.Next(0, 2) == 1 ? "Red" : "Green";
-                    Unit tmp = new RangedUnit(x, y, 100, -1, attackOption, randomAttackRange, team, "R");
+                    Unit tmp = new RangedUnit(x, y, 100, -1, attackOption, randomAttackRange, team, "R", "Tank");
                     unitsOnMap.Add(tmp);
 
                     grid[x, y] = unitsOnMap[numberOfUitsOnMap].Symbol;
