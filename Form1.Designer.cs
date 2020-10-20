@@ -37,6 +37,8 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.txtDisplay = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnRead = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,6 +50,7 @@
             // 
             // textBoxGrid
             // 
+            this.textBoxGrid.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGrid.Location = new System.Drawing.Point(20, 20);
             this.textBoxGrid.Name = "textBoxGrid";
             this.textBoxGrid.Size = new System.Drawing.Size(383, 370);
@@ -113,11 +116,33 @@
             this.txtDisplay.Size = new System.Drawing.Size(274, 200);
             this.txtDisplay.TabIndex = 7;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(451, 420);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 67);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnRead
+            // 
+            this.btnRead.Location = new System.Drawing.Point(550, 420);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(75, 67);
+            this.btnRead.TabIndex = 9;
+            this.btnRead.Text = "Continue";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 499);
+            this.Controls.Add(this.btnRead);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnExit);
@@ -143,6 +168,8 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TextBox txtDisplay;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnRead;
     }
 }
 

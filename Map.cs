@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,15 +55,15 @@ namespace StragtegyGame
                 // Check x, y not occupied by another unit
                 do
                 {
-                    x = rnd.Next(0, 20);
-                    y = rnd.Next(0, 20);
+                    x = rnd.Next(0, 19);
+                    y = rnd.Next(0, 19);
                 } while (grid[x, y] != FIELD_SYMBOL);
                 // Generate randomly either a meleeUnit or rangedUnit and place on map
                 if (rnd.Next(1, 3) == 1)
                 {
                     attackOption = rnd.Next(0, 2) == 1 ? true : false;
                     team = rnd.Next(0, 2) == 1 ? "RED" : "GREEN";
-                    Unit tmp = new MeleeUnit(x, y, 100, -1, attackOption, 1, team, "M", unitName);
+                    Unit tmp = new MeleeUnit(x, y, 100, -1, attackOption, 1, team, "M", "Soldier");
                     unitsOnMap.Add(tmp);
 
                     grid[x, y] = tmp.Symbol;
@@ -82,14 +83,18 @@ namespace StragtegyGame
 
                     numberOfUitsOnMap++;
                 }
+                
             }
 
         }
 
         private void moveOnMap(Unit u, int newX, int newY)
         {
-            grid[u.X, u.Y] = FIELD_SYMBOL;
-            grid[newX, newY] = u.Symbol;
+            if ((newX >= 0 && newY < 20) && (newY >= 0 && newY < 20))
+            {
+                grid[u.X, u.Y] = FIELD_SYMBOL;
+                grid[newX, newY] = u.Symbol;
+            }
         }
 
         public void update(Unit u, int newX, int newY)

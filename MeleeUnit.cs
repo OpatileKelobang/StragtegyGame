@@ -51,9 +51,9 @@ namespace StragtegyGame
         public override void move(int x, int y)
         {
 
-            if (x >= 0 && x < 20)
+            if (x >= 0 && x < 19)
                 this.x = x;
-            if (y >= 0 && y < 20)
+            if (y >= 0 && y < 19)
                 this.y = y;
         }
 
